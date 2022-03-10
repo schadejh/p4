@@ -38,7 +38,7 @@ uniq (x:xs) = xs
 
 -- helper function for uniqInts.
 -- given a list, sort it
-sort :: Ord t => [[t]] -> [t]
+sort :: Ord t => [t] -> [t]
 sort (x:xs) = sort ((partitionLess x xs) : sort (partitionMore x xs))
 
 partitionLess :: Ord a => a -> [a] -> [a]
