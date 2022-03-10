@@ -1,7 +1,8 @@
 --
 -- CS 430 P4 (Haskell 2)
 --
--- Name:
+-- Name: James Schader
+-- 20220310
 --
 
 module P4 where
@@ -28,4 +29,14 @@ postfix e = ""
 -- extract a sorted list of all unique integers in an expression
 uniqInts :: Expr -> [Int]
 uniqInts e = []
+
+
+-- helper function for uniqInts.
+-- given a list, remove duplicates
+uniq :: Eq t => [t] -> [t]
+
+
+-- helper function for uniqInts.
+-- given a list, sort it
+sort :: Ord t => [t] -> [t]
 
