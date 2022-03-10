@@ -28,7 +28,7 @@ postfix e = ""
 
 -- extract a sorted list of all unique integers in an expression
 uniqInts :: Expr -> [Int]
-uniqInts e = uniq (sort e)
+uniqInts e = uniq (sort (show e))
 -- does this work?
 
 -- helper function for uniqInts.
