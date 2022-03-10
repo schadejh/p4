@@ -34,9 +34,16 @@ uniqInts e = []
 -- helper function for uniqInts.
 -- given a list, remove duplicates
 uniq :: Eq t => [t] -> [t]
-
+uniq (x:xs) = xs
 
 -- helper function for uniqInts.
 -- given a list, sort it
 sort :: Ord t => [t] -> [t]
+sort (x:xs) = sort (partitionLess x xs) : sort (partitionMore x xs)
+
+partitionLess :: Ord a => a -> [a] -> [a]
+partitionLess v (t:ts) = filter (\x -> v >= x) ts
+
+partitionMore :: Ord a => a -> [a] -> [a]
+partitionMore v (t:ts) = filter (\x -> v < x) ts
 
