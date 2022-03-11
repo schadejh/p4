@@ -33,8 +33,11 @@ uniqInts e = uniq (sort (read e))
 -- helper function for uniqInts.
 -- given a list, remove duplicates
 uniq :: Eq t => [t] -> [t]
-uniq = map head . group . sort
-
+uniq = (x:xs) list2
+    | (elem x list2) = remDups xs list2
+    | otherwise = x : remDups xs (x:list2)
+	
+	
 -- helper function for uniqInts.
 -- given a list, sort it
 sort :: Ord t => [t] -> [t]
