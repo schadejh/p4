@@ -10,7 +10,11 @@ import Defs
 
 -- calculate the result of an expression
 eval :: Expr -> Int
-eval e = -1
+eval (Lit x) = x
+eval (Add x y) = eval x + eval y
+eval (Sub x y) = eval x - eval y
+eval (Mul x y) = eval x * eval y
+-- still need to think about parentheseso
 
 -- count the total number of arithmetic operations in an expression
 countOps :: Expr -> Int
