@@ -41,6 +41,6 @@ sort :: Ord t => [t] -> [t]
 sort ns
   | length ns < 1 = []
   | length ns == 1 = ns
-  | length ns > 1 = quicksort lower ++ [(head ns)] ++ quicksort upper
+  | length ns > 1 = sort lower ++ [(head ns)] ++ sort upper
       where upper = filter (\x -> x > (head ns)) (tail ns)
             lower = filter (\x -> x <= (head ns)) (tail ns)
