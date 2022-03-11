@@ -14,7 +14,7 @@ eval (Lit x) = x
 eval (Add x y) = eval x + eval y
 eval (Sub x y) = eval x - eval y
 eval (Mul x y) = eval x * eval y
--- still need to think about parentheseso
+-- still need to think about parentheses
 
 -- count the total number of arithmetic operations in an expression
 countOps :: Expr -> Int
@@ -37,10 +37,12 @@ uniqInts e = uniq (sort (read e))
 -- helper function for uniqInts.
 -- given a list, remove duplicates
 uniq :: Eq t => [t] -> [t]
-uniq = (x:xs) list2
-    | (elem x list2) = remDups xs list2
-    | otherwise = x : remDups xs (x:list2)
-	
+uniq t = uniqHelper t
+
+uniqHelper :: [t] -> [t] -> [t]
+uniqHelper = (x:xs) list2
+  | (elem x list2) = uniqHelper xs list2
+  | otherwise = x : uniqueHelper xs (x:list2)
 	
 -- helper function for uniqInts.
 -- given a list, sort it
