@@ -40,7 +40,7 @@ uniq :: Eq t => [t] -> [t]
 uniq t = uniqHelper t
 
 uniqHelper :: [t] -> [t] -> [t]
-uniqHelper = (x:xs) list2
+uniqHelper (x:xs) = (x:xs) list2
   | (elem x list2) = uniqHelper xs list2
   | otherwise = x : uniqueHelper xs (x:list2)
 	
