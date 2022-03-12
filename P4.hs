@@ -39,10 +39,6 @@ uniqInts e = uniq (sort (read e))
 uniq :: Eq t => [t] -> [t]
 uniq t = uniqHelper t
 
-uniqHelper :: [t] -> [t] -> [t]
-uniqHelper (x:xs) = (x:xs) list2
-  | (elem x list2) = uniqHelper xs list2
-  | otherwise = x : uniqueHelper xs (x:list2)
 	
 -- helper function for uniqInts.
 -- given a list, sort it
